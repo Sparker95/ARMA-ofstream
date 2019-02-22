@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arma-ofstream", "Arma-ofstream", "{6FDF7BAD-2D57-3913-8AFA-9ED58BD3AE25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMakePredefinedTargets", "CMakePredefinedTargets", "{34C83C8D-CA66-35CD-AE42-931C698FC7BD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292} = {B4601DEE-9DAB-3168-BE34-E15C650EA292}
+		{111945FB-C07E-34E1-822F-829D95628501} = {111945FB-C07E-34E1-822F-829D95628501}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arma-ofstream", "src\Arma-ofstream.vcxproj", "{B4601DEE-9DAB-3168-BE34-E15C650EA292}"
+	ProjectSection(ProjectDependencies) = postProject
+		{111945FB-C07E-34E1-822F-829D95628501} = {111945FB-C07E-34E1-822F-829D95628501}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{111945FB-C07E-34E1-822F-829D95628501}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C}.Debug|x64.ActiveCfg = Debug|x64
+		{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C}.Release|Win32.ActiveCfg = Release|Win32
+		{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C}.Release|x64.ActiveCfg = Release|x64
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Debug|Win32.Build.0 = Debug|Win32
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Debug|x64.ActiveCfg = Debug|x64
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Debug|x64.Build.0 = Debug|x64
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Release|Win32.ActiveCfg = Release|Win32
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Release|Win32.Build.0 = Release|Win32
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Release|x64.ActiveCfg = Release|x64
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292}.Release|x64.Build.0 = Release|x64
+		{111945FB-C07E-34E1-822F-829D95628501}.Debug|Win32.ActiveCfg = Debug|Win32
+		{111945FB-C07E-34E1-822F-829D95628501}.Debug|Win32.Build.0 = Debug|Win32
+		{111945FB-C07E-34E1-822F-829D95628501}.Debug|x64.ActiveCfg = Debug|x64
+		{111945FB-C07E-34E1-822F-829D95628501}.Debug|x64.Build.0 = Debug|x64
+		{111945FB-C07E-34E1-822F-829D95628501}.Release|Win32.ActiveCfg = Release|Win32
+		{111945FB-C07E-34E1-822F-829D95628501}.Release|Win32.Build.0 = Release|Win32
+		{111945FB-C07E-34E1-822F-829D95628501}.Release|x64.ActiveCfg = Release|x64
+		{111945FB-C07E-34E1-822F-829D95628501}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B05FC8CE-7B4F-3905-8FD4-02CAAE89119C} = {34C83C8D-CA66-35CD-AE42-931C698FC7BD}
+		{B4601DEE-9DAB-3168-BE34-E15C650EA292} = {6FDF7BAD-2D57-3913-8AFA-9ED58BD3AE25}
+		{111945FB-C07E-34E1-822F-829D95628501} = {34C83C8D-CA66-35CD-AE42-931C698FC7BD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88A29EB0-025D-38EE-848F-DE09A55FBB8D}
+	EndGlobalSection
+EndGlobal

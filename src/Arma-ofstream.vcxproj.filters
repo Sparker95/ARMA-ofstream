@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\src\FileInterface.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\client.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\eventhandlers.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\pointers.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\actions.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\ai.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\camera.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\cargo.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\chat.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\common_helpers.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\config.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\core.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\ctrl.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\curator.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\debug.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\deprecated.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\eden.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\group.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\hc.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\intersects.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\inventory.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\marker.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\misc.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\multiplayer.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\position.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\rotorlib.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\sound.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\tasks.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\uncategorized.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\units.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\vehicles.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\waypoint.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\world.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\client_types.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\containers.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\types.cpp">
+      <Filter>intercept</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Projects\ARMA-ofstream\src\FileInterface.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Projects\ARMA-ofstream\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="intercept">
+      <UniqueIdentifier>{590A1123-C8CB-3B4F-98CA-B5EDC47A83EE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{BD61B25D-51D4-349C-8B0C-8BF222AC968F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1 @@
+copy /Y "D:\Projects\intercept-plugin-template\x64\Release\template_plugin_x64.dll" "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@intercept-plugin-template\intercept"

@@ -1,0 +1,12 @@
+rv/*
+!rv/addons
+rv/addons/*.pbo
+rv/addons/*.bat
+rv/*.dll
+rv/carma_dll.*
+build
+!.gitkeep
+vcproj/*
+vcproj64/*
+.vs
+x64/*

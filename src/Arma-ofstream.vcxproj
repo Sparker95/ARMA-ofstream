@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B4601DEE-9DAB-3168-BE34-E15C650EA292}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Arma-ofstream</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Projects\ARMA-ofstream\build\win32\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Arma-ofstream.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Arma-ofstream</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Arma-ofstream_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Projects\ARMA-ofstream\build\win32\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Arma-ofstream.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Arma-ofstream</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Arma-ofstream_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR="Debug";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR=\"Debug\";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Projects/ARMA-ofstream/build/win32/Debug/Arma-ofstream.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR="Debug";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR=\"Debug\";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Projects/ARMA-ofstream/build/win32/Debug/Arma-ofstream.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR="Release";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR=\"Release\";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Projects/ARMA-ofstream/src/Release/Arma-ofstream.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/Projects/ARMA-ofstream/build/win32/Release/Arma-ofstream.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR="Release";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;INTERCEPT_NO_THREAD_SAFETY;CMAKE_INTDIR=\"Release\";Arma_ofstream_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Projects\ARMA-ofstream\src;D:\Projects\ARMA-ofstream\intercept\src\client\headers;D:\Projects\ARMA-ofstream\intercept\src\client\headers\shared;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client;D:\Projects\ARMA-ofstream\intercept\src\client\headers\client\sqf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Projects/ARMA-ofstream/src/Release/Arma-ofstream.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/Projects/ARMA-ofstream/build/win32/Release/Arma-ofstream.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Projects\ARMA-ofstream\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Projects/ARMA-ofstream/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Projects/ARMA-ofstream/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Projects/ARMA-ofstream -BD:/Projects/ARMA-ofstream --check-stamp-file D:/Projects/ARMA-ofstream/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Projects/ARMA-ofstream -BD:/Projects/ARMA-ofstream --check-stamp-file D:/Projects/ARMA-ofstream/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Projects/ARMA-ofstream/src/CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Projects/ARMA-ofstream/src/CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Projects\ARMA-ofstream\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Projects\ARMA-ofstream\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Projects/ARMA-ofstream/src/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Projects/ARMA-ofstream/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Projects/ARMA-ofstream -BD:/Projects/ARMA-ofstream --check-stamp-file D:/Projects/ARMA-ofstream/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Projects/ARMA-ofstream -BD:/Projects/ARMA-ofstream --check-stamp-file D:/Projects/ARMA-ofstream/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Projects/ARMA-ofstream/src/CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Projects/ARMA-ofstream/src/CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;D:\Projects\ARMA-ofstream\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Projects\ARMA-ofstream\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Projects\ARMA-ofstream\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\Projects\ARMA-ofstream\src\FileInterface.cpp" />
+    <ClInclude Include="D:\Projects\ARMA-ofstream\src\FileInterface.h" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\src\main.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\client.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\eventhandlers.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\pointers.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\actions.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\ai.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\camera.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\cargo.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\chat.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\common_helpers.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\config.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\core.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\ctrl.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\curator.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\debug.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\deprecated.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\eden.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\group.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\hc.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\intersects.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\inventory.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\marker.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\misc.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\multiplayer.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\position.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\rotorlib.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\sound.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\tasks.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\uncategorized.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\units.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\vehicles.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\waypoint.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\client\sqf\world.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\client_types.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\containers.cpp" />
+    <ClCompile Include="D:\Projects\ARMA-ofstream\intercept\src\client\intercept\shared\types.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Projects\ARMA-ofstream\ZERO_CHECK.vcxproj">
+      <Project>{111945FB-C07E-34E1-822F-829D95628501}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
