@@ -2,6 +2,7 @@
 #include "Windows.h"
 #include <stdio.h>
 #include "FileInterface.h"
+#include "dbghelp.h"
 
 #ifdef _DEBUG
 #include <conio.h>
@@ -23,7 +24,7 @@ void intercept::pre_start() {
 }
 
 void intercept::pre_init() {
-    intercept::sqf::system_chat("ARMA ofstream plugin is running!");
+    //intercept::sqf::system_chat("ARMA ofstream plugin is running!");
 }
 
 using namespace intercept;
@@ -45,21 +46,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 #ifdef _DEBUG
 		AllocConsole();
 		_cprintf("DLL ATTACH\n");
-		_cprintf("size of pointer: %i, size of int: %i\n", sizeof(void*), sizeof(unsigned int));
-		_cprintf("test unsinged int: %0llX\n", 0x0011223344556677);
-
-		void* testPtr = 0;
-		sscanf("0011223344556677", "%llX", &testPtr);
-		_cprintf("Restored pointer from string: %llX\n", testPtr);
 #endif
-		//_cprintf("Enter anything when concurrency visualizer is attached...\n");
-		//int a;
-		//_cscanf("%i", &a);
-		//FreeConsole();
-
-		// Create a new marker series
-		//g_mrkSeries = new marker_series(_T("Intercept marker series"));
-
+		// Ask Windows to create a Logs folder for us
+		MakeSureDirectoryPathExists("Logs\\");
 		break;
 	}
 	case DLL_THREAD_ATTACH:

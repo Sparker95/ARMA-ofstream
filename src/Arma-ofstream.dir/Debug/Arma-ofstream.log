@@ -1,0 +1,4 @@
+﻿  main.cpp
+     Creating library D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.lib and object D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.exp
+main.obj : error LNK2019: unresolved external symbol __imp__MakeSureDirectoryPathExists@4 referenced in function _DllMain@12
+D:\Projects\ARMA-ofstream\build\win32\Debug\Arma-ofstream.dll : fatal error LNK1120: 1 unresolved externals
