@@ -2,7 +2,7 @@
 
 Intercept-based addon for ARMA to output text to external files
 
-##### SQF commands
+## SQF commands
 
 ### ofstream_new
 Opens a file for output inside (Arma.exe root)\Logs folder, returns file handle to the opened file. Will return the same handle if called on the same file name multiple times.
@@ -34,5 +34,5 @@ g_myRpt ofstream_write "Some text";
 g_myRpt ofstream_write format ["Player's object: %1", player];
 ```
 
-##### References:
+## References:
 https://github.com/intercept/intercept
