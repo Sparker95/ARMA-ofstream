@@ -36,3 +36,5 @@ g_myRpt ofstream_write format ["Player's object: %1", player];
 
 ## References:
 https://github.com/intercept/intercept
+https://forums.bohemia.net/forums/topic/189144-intercept-a-library-for-writing-arma-addons-in-native-c/
+https://github.com/intercept/intercept-plugin-template
