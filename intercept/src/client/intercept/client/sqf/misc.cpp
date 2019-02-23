@@ -471,7 +471,7 @@ namespace intercept {
         }
 
         void set_particle_params(const object &particle_source_, const rv_particle_array &particle_array_) {
-            host::functions.invoke_raw_binary(__sqf::binary__setparticlecircle__object__array__ret__nothing, particle_source_, particle_array_);
+            host::functions.invoke_raw_binary(__sqf::binary__setparticleparams__object__array__ret__nothing, particle_source_, particle_array_);
         }
 
         void set_particle_random(const object &particle_source_, const rv_particle_random &particle_random_) {
@@ -520,7 +520,7 @@ namespace intercept {
             return host::functions.invoke_raw_binary(__sqf::binary__countside__side__array__ret__scalar, side_, std::move(objects));
         }
 
-        void reveal_mine(const object &value0_, const side &value1_) {
+        void reveal_mine(const side &value0_, const object &value1_) {
             host::functions.invoke_raw_binary(__sqf::binary__revealmine__side__object__ret__nothing, value0_, value1_);
         }
 

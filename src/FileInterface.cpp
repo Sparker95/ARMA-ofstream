@@ -154,6 +154,10 @@ void FileInterface::preStart()
 		game_data_type::STRING, // Return
 		game_data_type::STRING, // Left
 		game_data_type::STRING); // Right
+	m_SQF_ofstream_write2 = client::host::register_sqf_command("<<"sv, "Writes to a previously opened file, same as ofstream_write"sv, ofstream_write,
+		game_data_type::STRING, // Return
+		game_data_type::STRING, // Left
+		game_data_type::STRING); // Right
 
 	#ifdef _DEBUG
 	_cprintf("DONE\n");

@@ -16,6 +16,12 @@ D:\Projects\ARMA-ofstream\src\FileInterface.cpp(113): warning C4996: 'sprintf': 
   E:\Windows Kits\10\Include\10.0.17134.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
 D:\Projects\ARMA-ofstream\src\FileInterface.cpp(128): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   E:\Windows Kits\10\Include\10.0.17134.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+D:\Projects\ARMA-ofstream\src\FileInterface.cpp(152): warning C4996: 'intercept::client::host::register_sqf_command': use new game_state& syntax instead of uintptr_t
+  d:\projects\arma-ofstream\intercept\src\client\headers\client/client.hpp(50): note: see declaration of 'intercept::client::host::register_sqf_command'
+D:\Projects\ARMA-ofstream\src\FileInterface.cpp(153): warning C4996: 'intercept::client::host::register_sqf_command': use new game_state& syntax instead of uintptr_t
+  d:\projects\arma-ofstream\intercept\src\client\headers\client/client.hpp(45): note: see declaration of 'intercept::client::host::register_sqf_command'
+D:\Projects\ARMA-ofstream\src\FileInterface.cpp(157): warning C4996: 'intercept::client::host::register_sqf_command': use new game_state& syntax instead of uintptr_t
+  d:\projects\arma-ofstream\intercept\src\client\headers\client/client.hpp(45): note: see declaration of 'intercept::client::host::register_sqf_command'
   ai.cpp
   camera.cpp
   cargo.cpp

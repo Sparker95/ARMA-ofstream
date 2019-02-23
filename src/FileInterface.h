@@ -17,6 +17,7 @@ private:
 	// Registered SQF functions
 	registered_sqf_function m_SQF_ofstream_new;
 	registered_sqf_function m_SQF_ofstream_write;
+	registered_sqf_function m_SQF_ofstream_write2;
 
 	// Code that handles SQF function calls
 	// Must be static to register it

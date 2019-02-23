@@ -111,8 +111,8 @@ namespace intercept {
         uintptr_t game_data_team_member::type_def;
         uintptr_t game_data_team_member::data_type_def;
 
-        uintptr_t game_data_rv_namespace::type_def;
-        uintptr_t game_data_rv_namespace::data_type_def;
+        uintptr_t game_data_namespace::type_def;
+        uintptr_t game_data_namespace::data_type_def;
 
         uintptr_t game_data_nothing::type_def;
         uintptr_t game_data_nothing::data_type_def;
@@ -128,23 +128,23 @@ namespace intercept {
 
         value_types sqf_script_type::type() const {
             if (single_type != nullptr) {
-                return{ static_cast<std::string>(single_type->_name) };
+                return{ single_type->_name };
             }
 
             return{
-                static_cast<std::string>(compound_type->types->first->_name),
-                static_cast<std::string>(compound_type->types->second->_name)
+                compound_type->types->first->_name,
+                compound_type->types->second->_name
             };
         }
 
-        std::string sqf_script_type::type_str() const {
+        r_string sqf_script_type::type_str() const {
             if (single_type != nullptr) {
-                return static_cast<std::string>(single_type->_name);
+                return single_type->_name;
             }
 
             return
-                static_cast<std::string>(compound_type->types->first->_name) + "_" +
-                static_cast<std::string>(compound_type->types->second->_name);
+                compound_type->types->first->_name + "_" +
+                compound_type->types->second->_name;
 
         }
 
@@ -430,31 +430,31 @@ namespace intercept {
             return types::game_data_type::end;
         }
 
-        std::string __internal::to_string(game_data_type type) {
+        std::string_view __internal::to_string(game_data_type type) {
             switch (type) {
-                case game_data_type::SCALAR: return "SCALAR";
-                case game_data_type::BOOL: return "BOOL";
-                case game_data_type::ARRAY: return "ARRAY";
-                case game_data_type::STRING: return "STRING";
-                case game_data_type::NOTHING: return "NOTHING";
-                case game_data_type::ANY: return "ANY";
-                case game_data_type::NAMESPACE: return "NAMESPACE";
-                case game_data_type::NaN: return "NaN";
-                case game_data_type::CODE: return "CODE";
-                case game_data_type::OBJECT: return "OBJECT";
-                case game_data_type::SIDE: return "SIDE";
-                case game_data_type::GROUP: return "GROUP";
-                case game_data_type::TEXT: return "TEXT";
-                case game_data_type::SCRIPT: return "SCRIPT";
-                case game_data_type::TARGET: return "TARGET";
-                case game_data_type::CONFIG: return "CONFIG";
-                case game_data_type::DISPLAY: return "DISPLAY";
-                case game_data_type::CONTROL: return "CONTROL";
-                case game_data_type::SUBGROUP:  return "SUBGROUP";
-                case game_data_type::TEAM_MEMBER:return "TEAM_MEMBER";
-                case game_data_type::TASK: return "TASK";
-                case game_data_type::DIARY_RECORD: return "DIARY_RECORD";
-                case game_data_type::LOCATION: return "LOCATION";
+                case game_data_type::SCALAR: return "SCALAR"sv;
+                case game_data_type::BOOL: return "BOOL"sv;
+                case game_data_type::ARRAY: return "ARRAY"sv;
+                case game_data_type::STRING: return "STRING"sv;
+                case game_data_type::NOTHING: return "NOTHING"sv;
+                case game_data_type::ANY: return "ANY"sv;
+                case game_data_type::NAMESPACE: return "NAMESPACE"sv;
+                case game_data_type::NaN: return "NaN"sv;
+                case game_data_type::CODE: return "CODE"sv;
+                case game_data_type::OBJECT: return "OBJECT"sv;
+                case game_data_type::SIDE: return "SIDE"sv;
+                case game_data_type::GROUP: return "GROUP"sv;
+                case game_data_type::TEXT: return "TEXT"sv;
+                case game_data_type::SCRIPT: return "SCRIPT"sv;
+                case game_data_type::TARGET: return "TARGET"sv;
+                case game_data_type::CONFIG: return "CONFIG"sv;
+                case game_data_type::DISPLAY: return "DISPLAY"sv;
+                case game_data_type::CONTROL: return "CONTROL"sv;
+                case game_data_type::SUBGROUP:  return "SUBGROUP"sv;
+                case game_data_type::TEAM_MEMBER:return "TEAM_MEMBER"sv;
+                case game_data_type::TASK: return "TASK"sv;
+                case game_data_type::DIARY_RECORD: return "DIARY_RECORD"sv;
+                case game_data_type::LOCATION: return "LOCATION"sv;
                 default:;
             }
             for (auto& it : additionalTypes) {
@@ -731,7 +731,7 @@ namespace intercept {
                 return game_data_type::SIDE;
             if (_type == game_data_rv_text::type_def)
                 return game_data_type::TEXT;
-            if (_type == game_data_rv_namespace::type_def)
+            if (_type == game_data_namespace::type_def)
                 return game_data_type::NAMESPACE;
             if (_type == game_data_code::type_def)
                 return game_data_type::CODE;
@@ -825,7 +825,7 @@ namespace intercept {
                 case game_data_type::ARRAY: return reinterpret_cast<game_data_array*>(data.get())->hash();
                 case game_data_type::STRING: return reinterpret_cast<game_data_string*>(data.get())->hash();
                 case game_data_type::NOTHING: return reinterpret_cast<game_data*>(data.get())->to_string().hash();
-                case game_data_type::NAMESPACE: return reinterpret_cast<game_data_rv_namespace*>(data.get())->hash();
+                case game_data_type::NAMESPACE: return reinterpret_cast<game_data_namespace*>(data.get())->hash();
                 case game_data_type::NaN: return reinterpret_cast<game_data*>(data.get())->to_string().hash();
                 case game_data_type::CODE: return reinterpret_cast<game_data_code*>(data.get())->hash();
                 case game_data_type::OBJECT: return reinterpret_cast<game_data_object*>(data.get())->hash();
@@ -878,7 +878,7 @@ namespace intercept {
     #pragma endregion
 
     #pragma region Serialization
-        uintptr_t param_archive::get_game_state() {
+        game_state* param_archive::get_game_state() {
             auto allocinfo = GET_ENGINE_ALLOCATOR;
             return allocinfo->gameState;
         }

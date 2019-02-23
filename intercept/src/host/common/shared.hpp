@@ -1,6 +1,5 @@
 #pragma once
 
-#include "targetver.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string>
@@ -66,4 +65,8 @@ namespace intercept {
 #define INTERCEPT_ASSERT assert()
 #else
 #define INTERCEPT_ASSERT intercept::runtime_assert()
+#endif
+
+#ifdef __clang__
+#pragma message "clang is unsupported for usage with Arma"
 #endif
