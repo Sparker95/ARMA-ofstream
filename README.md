@@ -14,10 +14,10 @@ Return value string, file handle of the opened file
 Example:
 `g_myRpt = ofstream_new "myRpt.rpt";`
 
-### ofstream_write
+### ofstream_write         <<
 Writes text to a previously opened file.
 
-Syntax: `fileHandle ofstream_write text`  
+Syntax: `fileHandle ofstream_write text`, `fileHandle << text`
 Parameters: fileHandle - string, file handle returned by ofstream_new  
 text - string to output to file
 Return value string, file handle of the file
@@ -26,6 +26,7 @@ Examples:
 ```
 g_myRpt = ofstream_new "myRpt.rpt";
 g_myRpt ofstream_write "Some text";
+g_myRpt << "Look, I can output text like in C++";
 
 // Or can use it this way, with slightly worse performance
 (ofstream_new "myRpt.rpt") ofstream_write "Some text";
