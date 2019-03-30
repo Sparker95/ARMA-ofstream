@@ -15,21 +15,17 @@
 
 using namespace std;
 
-FileInterface g_FileInterface;
+static FileInterface* g_instance = nullptr;
 
-using file_map = std::unordered_map<std::string, std::ofstream>;
-
-file_map g_files;
-
-file_map::iterator open_file(std::string fileName)
+FileInterface::file_map::iterator FileInterface::open_file(std::string fileName)
 {
     // lowercase it
     std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
 
-    auto fItr = g_files.find(fileName);
-    if (fItr == g_files.end())
+    auto fItr = g_instance->g_files.find(fileName);
+    if (fItr == g_instance->g_files.end())
     {
-        fItr = g_files.emplace(std::make_pair(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::ate })).first;
+        fItr = g_instance->g_files.emplace(std::make_pair(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::ate })).first;
     }
 
     return fItr;
@@ -39,59 +35,91 @@ file_map::iterator open_file(std::string fileName)
 game_value FileInterface::ofstream_new(game_state& state, game_value_parameter parameter)
 {
     string fileName{ parameter };
+
 #ifdef _DEBUG
     _cprintf("ofstream_new: %s\n", fileName.c_str());
 #endif
-    return game_value(open_file(fileName)->first);
+    try
+    {
+        return game_value{ open_file(fileName)->first };
+    }
+    catch (...) //(const std::exception&)
+    {
+        return game_value{ "" };
+    }
 }
 
 game_value FileInterface::ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right)
 {
-    string fileName(left);
-    string textToWrite(right);
+    string fileName{ left };
+    string textToWrite{ right };
 
-    auto fileItr = open_file(fileName);
-    // Time to write stuff
-
-    // First output the current time
-    time_t t = time(0);
-    tm lt;
-    localtime_s(&lt, &t);
-    char timeStr[16];
-    sprintf_s(timeStr, "%02u:%02u:%02u ", lt.tm_hour, lt.tm_min, lt.tm_sec);
-    fileItr->second << timeStr << textToWrite << "\n";
-
+    try
+    {
 #ifdef _DEBUG
-    _cprintf("ofstream_write: %s %s\n", fileName.c_str(), textToWrite.c_str());
+        _cprintf("ofstream_write: %s %s\n", fileName.c_str(), textToWrite.c_str());
 #endif
 
-    return game_value(fileItr->first);
+        // Get the file handle, opening it if required
+        auto fileItr = open_file(fileName);
+
+        // First output the current time
+        time_t t = time(0);
+        tm lt;
+        localtime_s(&lt, &t);
+        char timeStr[16];
+        sprintf_s(timeStr, "%02u:%02u:%02u ", lt.tm_hour, lt.tm_min, lt.tm_sec);
+        fileItr->second << timeStr << textToWrite << "\n";
+        fileItr->second.flush();
+
+
+        return game_value{ fileItr->first };
+    }
+    catch (...) //(const std::exception&)
+    {
+        return game_value{ "" };
+    }
 }
 
 // Writes to the opened file
-
-void FileInterface::preStart()
+// Registered SQF functions
+FileInterface::FileInterface()
 {
-    #ifdef _DEBUG
+    g_instance = this;
+
+#ifdef _DEBUG
     _cprintf("PRE START ... ");
-    #endif
+#endif
 
     // Register SQF commands
 
     //register_sqf_command(std::string_view name, std::string_view description, WrapperFunctionUnary function_, game_data_type return_arg_type, game_data_type right_arg_type) {
     //	return functions.register_sqf_function_unary(name, description, function_, return_arg_type, right_arg_type);
+    using namespace intercept;
 
-    m_SQF_ofstream_new = client::host::register_sqf_command("ofstream_new"sv, "Opens a file in output text mode"sv, ofstream_new, game_data_type::STRING, game_data_type::STRING);
-    m_SQF_ofstream_write = client::host::register_sqf_command("ofstream_write"sv, "Writes to a previously opened file"sv, ofstream_write,
+    m_SQF_ofstream_new = client::host::register_sqf_command(
+        "ofstream_new", "Opens a file in output text mode",
+        ofstream_new,
+        game_data_type::STRING, game_data_type::STRING);
+    m_SQF_ofstream_write = client::host::register_sqf_command(
+        "ofstream_write", "Writes to a file",
+        ofstream_write,
         game_data_type::STRING, // Return
         game_data_type::STRING, // Left
         game_data_type::STRING); // Right
-    m_SQF_ofstream_write2 = client::host::register_sqf_command("<<"sv, "Writes to a previously opened file, same as ofstream_write"sv, ofstream_write,
+    m_SQF_ofstream_write2 = client::host::register_sqf_command(
+        "<<", "Writes to a file, same as ofstream_write",
+        ofstream_write,
         game_data_type::STRING, // Return
         game_data_type::STRING, // Left
         game_data_type::STRING); // Right
 
-    #ifdef _DEBUG
+#ifdef _DEBUG
     _cprintf("DONE\n");
-    #endif
+#endif
+}
+
+FileInterface::~FileInterface()
+{
+    g_instance = nullptr;
 }
