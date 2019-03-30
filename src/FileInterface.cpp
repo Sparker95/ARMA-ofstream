@@ -17,7 +17,7 @@ using namespace std;
 
 static FileInterface* g_instance = nullptr;
 
-FileInterface::file_map::iterator FileInterface::open_file(std::string fileName)
+std::ofstream* FileInterface::open_file(std::string fileName)
 {
     // lowercase it
     std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
@@ -25,10 +25,9 @@ FileInterface::file_map::iterator FileInterface::open_file(std::string fileName)
     auto fItr = g_instance->g_files.find(fileName);
     if (fItr == g_instance->g_files.end())
     {
-        fItr = g_instance->g_files.emplace(std::make_pair(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::ate })).first;
+        fItr = g_instance->g_files.emplace(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::ate }).first;
     }
-
-    return fItr;
+    return &fItr->second;
 }
 
 // Creates a new ofstream, adds it to the array
@@ -39,14 +38,9 @@ game_value FileInterface::ofstream_new(game_state& state, game_value_parameter p
 #ifdef _DEBUG
     _cprintf("ofstream_new: %s\n", fileName.c_str());
 #endif
-    try
-    {
-        return game_value{ open_file(fileName)->first };
-    }
-    catch (...) //(const std::exception&)
-    {
-        return game_value{ "" };
-    }
+    open_file(fileName);
+
+    return game_value{ fileName };
 }
 
 game_value FileInterface::ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right)
@@ -54,31 +48,24 @@ game_value FileInterface::ofstream_write(game_state& state, game_value_parameter
     string fileName{ left };
     string textToWrite{ right };
 
-    try
-    {
 #ifdef _DEBUG
-        _cprintf("ofstream_write: %s %s\n", fileName.c_str(), textToWrite.c_str());
+    _cprintf("ofstream_write: %s %s\n", fileName.c_str(), textToWrite.c_str());
 #endif
 
-        // Get the file handle, opening it if required
-        auto fileItr = open_file(fileName);
+    // Get the file handle, opening it if required
+    auto fileItr = open_file(fileName);
 
-        // First output the current time
-        time_t t = time(0);
-        tm lt;
-        localtime_s(&lt, &t);
-        char timeStr[16];
-        sprintf_s(timeStr, "%02u:%02u:%02u ", lt.tm_hour, lt.tm_min, lt.tm_sec);
-        fileItr->second << timeStr << textToWrite << "\n";
-        fileItr->second.flush();
+    // First output the current time
+    time_t t = time(0);
+    tm lt;
+    localtime_s(&lt, &t);
+    char timeStr[16];
+    sprintf_s(timeStr, "%02u:%02u:%02u ", lt.tm_hour, lt.tm_min, lt.tm_sec);
+    (*fileItr) << timeStr << textToWrite << "\n";
+    fileItr->flush();
 
 
-        return game_value{ fileItr->first };
-    }
-    catch (...) //(const std::exception&)
-    {
-        return game_value{ "" };
-    }
+    return game_value{ fileName };
 }
 
 // Writes to the opened file

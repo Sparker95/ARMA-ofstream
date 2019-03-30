@@ -14,7 +14,7 @@ public:
 private:
     using file_map = std::unordered_map<std::string, std::ofstream>;
 
-    static file_map::iterator open_file(std::string fileName);
+    static std::ofstream* open_file(std::string fileName);
     static game_value ofstream_new(game_state& state, game_value_parameter parameter);
     static game_value ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right);
 
