@@ -3,9 +3,6 @@
 #include <stdint.h>
 #include <ctime>
 #include <algorithm>
-#include <fstream>
-#include <memory>
-#include <unordered_map>
 
 #include <intercept.hpp>
 
@@ -40,7 +37,7 @@ game_value FileInterface::ofstream_new(game_state& state, game_value_parameter p
 #endif
     open_file(fileName);
 
-    return game_value{ fileName };
+    return fileName;
 }
 
 game_value FileInterface::ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right)
@@ -64,8 +61,7 @@ game_value FileInterface::ofstream_write(game_state& state, game_value_parameter
     (*fileItr) << timeStr << textToWrite << "\n";
     fileItr->flush();
 
-
-    return game_value{ fileName };
+    return fileName;
 }
 
 // Writes to the opened file
