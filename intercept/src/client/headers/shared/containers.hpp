@@ -125,7 +125,11 @@ namespace intercept::types {
         //It is required, but GCC doesn't care about unused members and ignores the attribute, and thus warns about a ignored attribute
         [[maybe_unused]] 
     #endif
+        #ifdef _WIN64
+        char pad_0x0000[0x48];  //0x0000
+        #else
         char pad_0x0000[0x24];  //0x0000
+        #endif
     public:
         const char* _allocName;
 
@@ -767,14 +771,14 @@ namespace intercept::types {
 
         ///== is case insensitive just like scripting
         bool operator==(const char* other_) const {
-            if (!data()) return !other_ || !*other_;  //empty?
+            if (empty()) return !other_ || !*other_;  //empty?
 
             return operator==(std::string_view(other_));
         }
 
         ///== is case insensitive just like scripting
         bool operator==(std::string_view other_) const {
-            if (!data()) return other_.empty();                //empty?
+            if (empty()) return other_.empty();
             if (other_.length() > _ref->size()) return false;  //There is more data than we can even have
 
             return std::equal(other_.cbegin(), other_.cend(),
@@ -784,7 +788,7 @@ namespace intercept::types {
 
         ///== is case insensitive just like scripting
         bool operator==(const r_string& other_) const {
-            if (!data() || !other_.data()) return data() == other_.data();  //empty?
+            if (empty() || other_.empty()) return data() == other_.data();
             if (data() == other_.data()) return true;
 
             return operator==(std::string_view(other_));
@@ -811,12 +815,12 @@ namespace intercept::types {
         }
 
         bool operator<(const r_string& other_) const {
-            if (!data()) return false;  //empty?
+            if (empty()) return false; 
             return strcmp(data(), other_.data()) < 0;
         }
 
         bool operator>(const r_string& other_) const {
-            if (!data()) return false;  //empty?
+            if (empty()) return false;
             return strcmp(data(), other_.data()) > 0;
         }
 
@@ -1306,6 +1310,7 @@ namespace intercept::types {
 
         auto_array& operator=(const auto_array& copy_) {
             if (copy_._n) {
+                clear();
                 insert(base::end(), copy_.begin(), copy_.end());
             }
             return *this;
@@ -1441,6 +1446,29 @@ namespace intercept::types {
                 erase(begin() + index_);
             else if (count_ > 1)
                 erase(begin() + index_, begin() + index_ + (count_ - 1));
+        }
+
+        /**
+        * @brief Inserts a single value at _where
+        * @param _value the value to insert
+        * @return A iterator pointing to the inserted value
+        */
+        template <class _InType>  //This is sooo not threadsafe!
+        iterator insert(iterator _where, _InType&& _value) {
+            if (_where < base::begin() || _where > base::end()) throw std::runtime_error("Invalid Iterator");  //WTF?!
+            const size_t insertOffset = std::distance(base::begin(), _where);
+            const size_t previousEnd = static_cast<size_t>(base::_n);
+            const size_t oldSize = base::count();
+            reserve(oldSize + 1);
+
+            //emplace_back(_value);
+            //custom inlined version of emplace_back. No capacity checks and only incrementing _n once.
+            auto& item = base::_data[base::_n];
+            ::new (&item) Type(std::forward<decltype(_value)>(_value));
+            ++base::_n;
+
+            std::rotate(base::begin() + insertOffset, base::begin() + previousEnd, base::end());
+            return base::begin() + insertOffset;
         }
 
         /**
@@ -1772,6 +1800,12 @@ namespace intercept::types {
         }
 
         Container* get_table_for_key(std::string_view key_) {
+            if (!_table || !_count) return nullptr;
+            const int hashed_key = hash_key(key_);
+            return &_table[hashed_key];
+        }
+
+        const Container* get_table_for_key(std::string_view key_) const {
             if (!_table || !_count) return nullptr;
             const int hashed_key = hash_key(key_);
             return &_table[hashed_key];
