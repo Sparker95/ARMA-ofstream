@@ -27,6 +27,21 @@ std::ofstream* FileInterface::open_file(std::string fileName)
     return &fItr->second;
 }
 
+std::ofstream* FileInterface::clear_file(std::string fileName)
+{
+	// lowercase it
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
+
+	auto fItr = g_instance->g_files.find(fileName);
+	if (fItr != g_instance->g_files.end())
+	{
+		fItr->second.close();
+		g_instance->g_files.erase(fItr);
+	}
+	fItr = g_instance->g_files.emplace(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::trunc }).first;
+	return &fItr->second;
+}
+
 // Creates a new ofstream, adds it to the array
 game_value FileInterface::ofstream_new(game_state& state, game_value_parameter parameter)
 {
@@ -38,6 +53,16 @@ game_value FileInterface::ofstream_new(game_state& state, game_value_parameter p
     open_file(fileName);
 
     return fileName;
+}
+
+game_value FileInterface::ofstream_clear(game_state& state, game_value_parameter parameter)
+{
+	string fileName{ parameter };
+#ifdef _DEBUG
+	_cprintf("ofstream_clear: %s\n", fileName.c_str());
+#endif
+	clear_file(fileName);
+	return fileName;
 }
 
 game_value FileInterface::ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right)
@@ -64,6 +89,23 @@ game_value FileInterface::ofstream_write(game_state& state, game_value_parameter
     return fileName;
 }
 
+game_value FileInterface::ofstream_dump(game_state& state, game_value_parameter left, game_value_parameter right)
+{
+	string fileName{ left };
+	string textToWrite{ right };
+
+#ifdef _DEBUG
+	_cprintf("ofstream_dump: %s %s\n", fileName.c_str(), textToWrite.c_str());
+#endif
+
+	// Get the file handle, opening it if required
+	auto fileItr = open_file(fileName);
+	(*fileItr) << textToWrite;
+	fileItr->flush();
+	return fileName;
+}
+
+
 // Writes to the opened file
 // Registered SQF functions
 FileInterface::FileInterface()
@@ -81,9 +123,13 @@ FileInterface::FileInterface()
     using namespace intercept;
 
     m_SQF_ofstream_new = client::host::register_sqf_command(
-        "ofstream_new", "Opens a file in output text mode",
+        "ofstream_new", "Opens a file in output text mode (not required, files are opened on write anyway)",
         ofstream_new,
         game_data_type::STRING, game_data_type::STRING);
+	m_SQF_ofstream_clear = client::host::register_sqf_command(
+		"ofstream_clear", "Clears a file contents",
+		ofstream_clear,
+		game_data_type::STRING, game_data_type::STRING);
     m_SQF_ofstream_write = client::host::register_sqf_command(
         "ofstream_write", "Writes to a file",
         ofstream_write,
@@ -96,6 +142,13 @@ FileInterface::FileInterface()
         game_data_type::STRING, // Return
         game_data_type::STRING, // Left
         game_data_type::STRING); // Right
+
+	m_SQF_ofstream_dump = client::host::register_sqf_command(
+		"ofstream_dump", "Dumps string to a file with no formatting or timestamp",
+		ofstream_dump,
+		game_data_type::STRING, // Return
+		game_data_type::STRING, // Left
+		game_data_type::STRING); // Right
 
 #ifdef _DEBUG
     _cprintf("DONE\n");
