@@ -7,7 +7,7 @@
 #include <unordered_map>
 
 // Class that lets SQF interract with files
-// Author: Sparker 20.02.2019
+// Authors: Sparker 20.02.2019 (initial autor), Billw (source code redesign and optimization) 
 
 class FileInterface
 {
@@ -17,8 +17,8 @@ public:
 
 private:
 
-    static std::ofstream* open_file(std::string fileName);
-	static std::ofstream* clear_file(std::string fileName);
+    static std::ofstream* open_file(const std::string& fileName);
+	static std::ofstream* clear_file(const std::string& fileName);
 
     static game_value ofstream_new(game_state& state, game_value_parameter parameter);
 	static game_value ofstream_clear(game_state& state, game_value_parameter parameter);

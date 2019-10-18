@@ -49,7 +49,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
         _cprintf("DLL ATTACH\n");
 #endif
         // Ask Windows to create a Logs folder for us
-        CreateDirectoryA("Logs\\", NULL);
+        //CreateDirectoryA("Logs\\", NULL);
         break;
     }
     case DLL_THREAD_ATTACH:

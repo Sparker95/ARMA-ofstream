@@ -1,4 +1,39 @@
-﻿  main.cpp
+﻿  client.cpp
+  eventhandlers.cpp
+  pointers.cpp
+  actions.cpp
+  ai.cpp
+  camera.cpp
+  cargo.cpp
+  chat.cpp
+  common_helpers.cpp
+  config.cpp
+  core.cpp
+  ctrl.cpp
+  curator.cpp
+  debug.cpp
+  deprecated.cpp
+  eden.cpp
+  group.cpp
+  hc.cpp
+  intersects.cpp
+  inventory.cpp
+  marker.cpp
+  misc.cpp
+  multiplayer.cpp
+  position.cpp
+  rotorlib.cpp
+  sound.cpp
+  tasks.cpp
+  uncategorized.cpp
+  units.cpp
+  vehicles.cpp
+  waypoint.cpp
+  world.cpp
+  client_types.cpp
+  containers.cpp
+  types.cpp
+  FileInterface.cpp
+  main.cpp
      Creating library D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.lib and object D:/Projects/ARMA-ofstream/src/Debug/Arma-ofstream.exp
-main.obj : error LNK2019: unresolved external symbol __imp__MakeSureDirectoryPathExists@4 referenced in function _DllMain@12
-D:\Projects\ARMA-ofstream\build\win32\Debug\Arma-ofstream.dll : fatal error LNK1120: 1 unresolved externals
+  Arma-ofstream.vcxproj -> D:\Projects\ARMA-ofstream\build\win32\Debug\Arma-ofstream.dll

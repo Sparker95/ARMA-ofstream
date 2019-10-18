@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <ctime>
 #include <algorithm>
-
+#include <filesystem>
 #include <intercept.hpp>
 
 #ifdef _DEBUG
@@ -11,41 +11,73 @@
 #endif
 
 using namespace std;
+using string = std::string;
 
 static FileInterface* g_instance = nullptr;
 
-std::ofstream* FileInterface::open_file(std::string fileName)
+// Internal function (not SQF)
+std::ofstream* FileInterface::open_file(const std::string& fileName)
 {
-    // lowercase it
-    std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
+	string profileName{ intercept::sqf::profile_name() };
 
-    auto fItr = g_instance->g_files.find(fileName);
+#ifdef _DEBUG
+	_cprintf("open_file: %s\n", fileName.c_str());
+#endif
+
+	string key = profileName + fileName;
+    auto fItr = g_instance->g_files.find(key);
     if (fItr == g_instance->g_files.end())
     {
-        fItr = g_instance->g_files.emplace(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::ate }).first;
+#ifdef _DEBUG
+		_cprintf("  file was not open before\n");
+#endif
+
+		// Also create a directory Logs/profileName
+		string folderPathStr("Logs/");
+		folderPathStr += profileName;
+		std::filesystem::path folderPath(folderPathStr);
+		std::filesystem::create_directories(folderPathStr);
+
+		string fileOpenPath = folderPathStr; // Logs/profileName/fileName
+		fileOpenPath.append("/");
+		fileOpenPath.append(fileName);
+        fItr = g_instance->g_files.emplace(key, std::ofstream{ fileOpenPath, ios_base::out | ios_base::ate }).first;
     }
     return &fItr->second;
 }
 
-std::ofstream* FileInterface::clear_file(std::string fileName)
+// Internal function (not SQF)
+std::ofstream* FileInterface::clear_file(const std::string& fileName)
 {
-	// lowercase it
-	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
+	string profileName{ intercept::sqf::profile_name() };
 
-	auto fItr = g_instance->g_files.find(fileName);
+	string key = profileName + fileName;
+	auto fItr = g_instance->g_files.find(key);
 	if (fItr != g_instance->g_files.end())
 	{
 		fItr->second.close();
 		g_instance->g_files.erase(fItr);
 	}
-	fItr = g_instance->g_files.emplace(fileName, std::ofstream{ std::string("Logs/") + fileName, ios_base::out | ios_base::trunc }).first;
+
+	// Also create a directory Logs/profileName
+	string folderPathStr("Logs/");
+	folderPathStr += profileName;
+	std::filesystem::path folderPath(folderPathStr);
+	std::filesystem::create_directories(folderPathStr);
+
+	string fileOpenPath = folderPathStr; // Logs/profileName/fileName
+	fileOpenPath.append("/");
+	fileOpenPath.append(fileName);
+	fItr = g_instance->g_files.emplace(key, std::ofstream{ fileOpenPath, ios_base::out | ios_base::trunc }).first;
 	return &fItr->second;
 }
 
 // Creates a new ofstream, adds it to the array
+// Makes no sense any more, since open_file will be called each time. I guess we keep it for compatibility
 game_value FileInterface::ofstream_new(game_state& state, game_value_parameter parameter)
 {
     string fileName{ parameter };
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
 
 #ifdef _DEBUG
     _cprintf("ofstream_new: %s\n", fileName.c_str());
@@ -58,6 +90,8 @@ game_value FileInterface::ofstream_new(game_state& state, game_value_parameter p
 game_value FileInterface::ofstream_clear(game_state& state, game_value_parameter parameter)
 {
 	string fileName{ parameter };
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
+
 #ifdef _DEBUG
 	_cprintf("ofstream_clear: %s\n", fileName.c_str());
 #endif
@@ -68,6 +102,7 @@ game_value FileInterface::ofstream_clear(game_state& state, game_value_parameter
 game_value FileInterface::ofstream_write(game_state& state, game_value_parameter left, game_value_parameter right)
 {
     string fileName{ left };
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
     string textToWrite{ right };
 
 #ifdef _DEBUG
@@ -92,6 +127,7 @@ game_value FileInterface::ofstream_write(game_state& state, game_value_parameter
 game_value FileInterface::ofstream_dump(game_state& state, game_value_parameter left, game_value_parameter right)
 {
 	string fileName{ left };
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::tolower);
 	string textToWrite{ right };
 
 #ifdef _DEBUG
