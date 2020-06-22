@@ -22,6 +22,15 @@ Parameters: fileHandle - string, file handle returned by ofstream_new
 text - string to output to file
 Return value string, file handle of the file
 
+### ofstream_dump
+Same as ofstream_write, but does not write timestamp.
+
+### ofstream_clear
+Clears file with given name.
+
+Syntax: `ofstream_clear fileName`  
+Parameters: fileName - file name to clear
+
 Examples:
 ```
 g_myRpt = ofstream_new "myRpt.rpt";
